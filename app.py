@@ -10,7 +10,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from login_register import check_login, register_user  # Import login/register functions
 
 # Set up the LLM
-api_key = "AIzaSyBpEcbS4P75h4sjSrcDjv6mTjvM28m6Wv0"
+api_key = "YOUR_API_KEY"
 llm = GoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key, temperature=1.0)
 os.environ["GOOGLE_API_KEY"] = api_key
 
