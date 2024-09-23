@@ -33,26 +33,25 @@ venv\Scripts\activate
 # On macOS/Linux
 source venv/bin/activate
 ```
-###Step 3: Install Required Packages
+### Step 3: Install Required Packages
 Install the necessary packages using the following command:
 ```bash
-Copy code
 pip install -r requirements.txt
 ```
-### Step 1: Run the Application
+### Step 4: Run the Application
 To start the application, execute:
 ```bash
 
 streamlit run app.py
 ```
-### Step 2: Access the Application
+### Step 5: Access the Application
 Open your web browser and navigate to http://localhost:8501 to access the application.
 
-### Step 3: User Authentication
+### Step 6: User Authentication
 Choose to Login or Register.
 If registering, fill in the new username, password, and select a role.
 If logging in, provide your username and password.
-### Step 4: Generating Questions
+### Step 7: Generating Questions
 After logging in, select the appropriate page from the sidebar.
 Choose whether to upload a PDF or enter a text prompt.
 Select the type of questions you wish to generate.
@@ -75,7 +74,6 @@ Streamlit
 LangChain
 Google Generative AI
 markdown
-Copy code
 
 ### Instructions:
 - Replace `yourusername` in the cloning section with your actual GitHub username.
