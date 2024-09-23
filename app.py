@@ -20,7 +20,7 @@ st.markdown(
     <style>
     /* General App Styling */
     .stApp {
-        background-image: url("https://img.freepik.com/free-photo/questioning-concept-with-question-mark_23-2150408203.jpg");
+        background-image: url("ADD_BACKGROUND_IMAGE");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
