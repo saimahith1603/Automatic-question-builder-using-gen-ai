@@ -1,28 +1,32 @@
-import hashlib
+import boto3
+from boto3.dynamodb.conditions import Key
 
-# Simulate a simple in-memory database for user data (username, password hash, role)
-class UserDatabase:
-    def __init__(self):
-        self.users = {}  # Initialize an empty dictionary to store users
-
-    def hash_password(self, password):
-        return hashlib.sha256(password.encode()).hexdigest()
-
-    def add_user(self, username, password, role):
-        password_hash = self.hash_password(password)
-        self.users[username] = {"password": password_hash, "role": role}  # Store username, password hash, and role
-
-    def verify_user(self, username, password):
-        password_hash = self.hash_password(password)
-        user = self.users.get(username)
-        if user and user["password"] == password_hash:
-            return user["role"]  # Return the role if credentials are correct
-        return None
-
-user_db = UserDatabase()
-
-def register_user(username, password, role):
-    user_db.add_user(username, password, role)
+# Initialize DynamoDB client
+dynamodb = boto3.resource('dynamodb', 
+    aws_access_key_id='YOUR_ACCESS_KEY', 
+    aws_secret_access_key='YOUR_SECRET_KEY', 
+    region_name='us-east-1'
+)
+user_table = dynamodb.Table('User')
 
 def check_login(username, password):
-    return user_db.verify_user(username, password)
+    try:
+        response = user_table.get_item(Key={'Name': username, 'Password': password})
+        if 'Item' in response:
+            return response['Item']['Role']
+        else:
+            return None
+    except Exception as e:
+        print(f"Error checking login: {e}")
+        return None
+
+def register_user(username, password, role):
+    try:
+        user_table.put_item(Item={
+            'Name': username,
+            'Password': password,
+            'Role': role
+        })
+        print("User registered successfully!")
+    except Exception as e:
+        print(f"Error registering user: {e}")
