@@ -4,18 +4,22 @@
 The Automated Question Builder is a web application designed to help users generate questions from uploaded PDF documents or text prompts. It supports user authentication and provides various question types, allowing for a customizable experience tailored to trainers and trainees.
 
 ## Features
-- User authentication (login and registration)
-- Upload PDF files or enter text prompts for question generation
-- Generate different types of questions: Coding, MCQs, Descriptive, True/False
-- Download generated questions as CSV files
-- Role-based access management (admin, trainer, employee)
-
+- Automated Question Generation: Generate questions from input PDFs or manually entered topics.
+- PDF Export: Save generated questions and answers in a downloadable PDF.
+- Database Storage: Store questions in AWS DynamoDB for later access and retrieval.
+- User Management: Role-based login and registration system.
+- Feedback System: Trainers can submit feedback, which admins can view and respond to.
+- Issue Resolution: Admins can add resolutions to common issues for employees to view.
 ## Installation
 
 ### Prerequisites
 Before you begin, ensure you have the following installed on your system:
 - Python 3.7 or later
 - pip (Python package installer)
+- Python 3.x
+- Streamlit
+- FPDF
+- AWS SDK (for DynamoDB integration)
 
 ### Step 1: Clone the Repository
 Open your terminal or command prompt and run the following command:
